@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uyT-Go-uNI">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--History-->
+        <scene sceneID="zTs-Fu-ddD">
+            <objects>
+                <tableViewController storyboardIdentifier="HistoryView" id="IZj-XF-x0M" customClass="HistoryTableViewController" customModule="Personal_Trainer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="F09-yx-tue">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryEntry" rowHeight="80" id="Bb9-LA-eRz" customClass="HistoryTableViewCell" customModule="Personal_Trainer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="Bb9-LA-eRz" id="Ahf-Zx-6hG">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2z3-hf-FCM">
+                                            <rect key="frame" x="37" y="0.0" width="152" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WorkOut Routine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WIs-2d-Tab">
+                                            <rect key="frame" x="37" y="37" width="192" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="workOutDate" destination="2z3-hf-FCM" id="dNn-rH-Hlu"/>
+                                    <outlet property="workOutType" destination="WIs-2d-Tab" id="jYu-Gn-8qE"/>
+                                    <segue destination="a4h-vC-n3u" kind="show" identifier="showDetail" id="NCY-Wo-Ke5"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="IZj-XF-x0M" id="0HS-C0-K8u"/>
+                            <outlet property="delegate" destination="IZj-XF-x0M" id="rYM-Wd-N6H"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="History" id="E1K-UO-H8u">
+                        <barButtonItem key="rightBarButtonItem" title="Add New Record" id="ZFS-tV-Q7O">
+                            <connections>
+                                <segue destination="89Q-wl-EED" kind="show" id="Gxh-BT-QGI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BJ0-gl-AZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="W7A-De-sxD" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="3202.5" y="562.5"/>
+        </scene>
+        <!--Today's WorkOut-->
+        <scene sceneID="frM-oA-Cqy">
+            <objects>
+                <tableViewController id="a4h-vC-n3u" customClass="WorkOutEntry" customModule="Personal_Trainer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="46" sectionHeaderHeight="18" sectionFooterHeight="18" id="qDi-En-ElH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="workOutCell" rowHeight="46" id="JF5-ys-fDL" customClass="WorkOutTableCell" customModule="Personal_Trainer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="49.5" width="375" height="46"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JF5-ys-fDL" id="qgD-Y8-erZ">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="45.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="lb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b5L-Kf-blZ">
+                                            <rect key="frame" x="270" y="10" width="42" height="25"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Please Enter the weight" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DmC-BE-zUz">
+                                            <rect key="frame" x="35" y="8" width="167" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="theWeightEntry" destination="DmC-BE-zUz" id="f9Y-dw-Reo"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="a4h-vC-n3u" id="Whk-6R-kZ1"/>
+                            <outlet property="delegate" destination="a4h-vC-n3u" id="sc9-Du-cgd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Today's WorkOut" id="M08-AL-Rhl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="o3J-tq-29i">
+                            <connections>
+                                <segue destination="W7A-De-sxD" kind="unwind" unwindAction="unwindtoHistory:" id="W3D-4p-qys"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="saveButton" destination="o3J-tq-29i" id="OZk-HG-LvR"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g7E-hQ-Pq8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3671.5" y="1643.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hjD-tQ-CDY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="uyT-Go-uNI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3DF-ZV-wjc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="GLw-1Z-L2a">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="IZj-XF-x0M" kind="relationship" relationship="rootViewController" id="sSc-lI-zxQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="06u-l1-4RN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2528" y="563"/>
+        </scene>
+        <!--Exisiting Plans-->
+        <scene sceneID="XED-X0-wp2">
+            <objects>
+                <tableViewController storyboardIdentifier="existingPlan" title="Exisiting Plans" id="ORu-1A-eIE" customClass="ExisitingPlanTableViewController" customModule="Personal_Trainer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="68" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mtm-Fe-UXs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="existingPlan" textLabel="LP8-FW-G3v" rowHeight="68" style="IBUITableViewCellStyleDefault" id="315-9y-f9S">
+                                <rect key="frame" x="0.0" y="92" width="375" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="315-9y-f9S" id="qzd-0a-uP6">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="67.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LP8-FW-G3v">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="67.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="wON-mR-K3P" kind="show" id="lcu-zf-Mwn"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ORu-1A-eIE" id="uTN-rv-Wej"/>
+                            <outlet property="delegate" destination="ORu-1A-eIE" id="z8S-Rb-r9c"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Existing Plans" id="hgo-cZ-Lgh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Khw-lW-4d0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4183.5" y="-253.5"/>
+        </scene>
+        <!--ExistingPlanDetail-->
+        <scene sceneID="Fwi-Ab-iWo">
+            <objects>
+                <tableViewController id="wON-mR-K3P" userLabel="ExistingPlanDetail" customClass="ExistingPlanDetailTableViewController" customModule="Personal_Trainer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" id="0fn-QJ-fI1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExistingDetail" textLabel="360-Z3-0Ql" imageView="Zw2-LI-cNK" rowHeight="62" style="IBUITableViewCellStyleDefault" id="KZ7-PA-OH3">
+                                <rect key="frame" x="0.0" y="92" width="375" height="62"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KZ7-PA-OH3" id="GyZ-Gm-S3Y">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="61.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="360-Z3-0Ql">
+                                            <rect key="frame" x="92" y="0.0" width="268" height="61.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Decline Barbell Bench Press" id="Zw2-LI-cNK">
+                                            <rect key="frame" x="15" y="0.0" width="62" height="61.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wON-mR-K3P" id="1AQ-xO-r3w"/>
+                            <outlet property="delegate" destination="wON-mR-K3P" id="rvW-Vj-811"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Detail" id="734-S5-Jhr">
+                        <barButtonItem key="rightBarButtonItem" title="Continue" id="jLD-Ig-ecM">
+                            <connections>
+                                <segue destination="ewg-PX-hKF" kind="show" id="2t3-Ew-9Jc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y6B-DA-JPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4752.5" y="-287.5"/>
+        </scene>
+        <!--Select your Desired WorkOut-->
+        <scene sceneID="c17-1o-OvQ">
+            <objects>
+                <tableViewController id="JmZ-Ps-Ywa" customClass="WorkOutListTableViewController" customModule="Personal_Trainer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="79" sectionHeaderHeight="28" sectionFooterHeight="28" id="hl2-fc-fOJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="workOutSelection" textLabel="uJd-L2-S5T" imageView="8FS-9V-CvH" rowHeight="79" style="IBUITableViewCellStyleDefault" id="dzE-fs-uMa">
+                                <rect key="frame" x="0.0" y="92" width="375" height="79"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dzE-fs-uMa" id="rWR-hn-2Jj">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="78.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" id="uJd-L2-S5T">
+                                            <rect key="frame" x="109" y="0.0" width="251" height="78.5"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="Decline Barbell Bench Press" id="8FS-9V-CvH">
+                                            <rect key="frame" x="15" y="0.0" width="79" height="78.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JmZ-Ps-Ywa" id="l5b-El-65F"/>
+                            <outlet property="delegate" destination="JmZ-Ps-Ywa" id="yPo-Vn-gfv"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Dwa-z9-hq8"/>
+                        <barButtonItem title="Customize" id="mUk-sl-IbO">
+                            <connections>
+                                <segue destination="qSq-nW-0pT" kind="presentation" id="vyd-1y-LjM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem id="wbH-Yp-gib"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="4cx-c8-PPm"/>
+                        <barButtonItem title="Save Plan" id="iyy-PY-c9s">
+                            <connections>
+                                <action selector="saveWorkOutPlan:" destination="JmZ-Ps-Ywa" id="Uzo-v5-7PK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="QUE-2Q-CYH"/>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Select your Desired WorkOut" id="crZ-8R-FWV">
+                        <barButtonItem key="rightBarButtonItem" title="Continue" id="CCJ-ac-n71">
+                            <connections>
+                                <segue destination="ewg-PX-hKF" kind="show" identifier="desiredSet" id="uwi-ee-xee"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="continuebutton" destination="CCJ-ac-n71" id="Sqy-hL-hPF"/>
+                        <outlet property="saveWorkOut" destination="iyy-PY-c9s" id="g2u-Vp-ft2"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lCL-66-7Ch" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4342.5" y="574.5"/>
+        </scene>
+        <!--Customize your WorkOut-->
+        <scene sceneID="PEw-Zb-b9g">
+            <objects>
+                <viewController id="gmh-LT-uq3" customClass="CustomizeViewController" customModule="Personal_Trainer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6L1-Lv-tWy"/>
+                        <viewControllerLayoutGuide type="bottom" id="lgM-V5-jvM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XV4-wV-vTV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Customize Your Own WorkOut" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dae-tt-m9q">
+                                <rect key="frame" x="71" y="28" width="232" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYy-xL-kO7">
+                                <rect key="frame" x="36" y="119" width="50" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the name of your WorkOut" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oOT-hl-mCZ">
+                                <rect key="frame" x="36" y="153" width="319" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Image:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlA-5W-A2D">
+                                <rect key="frame" x="36" y="234" width="52" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="OSK-EX-Kna">
+                                <rect key="frame" x="36" y="276" width="320" height="320"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ImX-TG-meT" appends="YES" id="19X-Yk-b1F"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Customize your WorkOut" id="P4p-b7-9bN">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="WR3-er-YLP">
+                            <connections>
+                                <action selector="CancelAdding:" destination="gmh-LT-uq3" id="rzh-Wh-HmY"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="jMv-LF-9ua">
+                            <connections>
+                                <segue destination="JmZ-Ps-Ywa" kind="show" id="zdj-Un-fXH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="jMv-LF-9ua" id="SNA-gg-EqM"/>
+                        <outlet property="workOutImage" destination="OSK-EX-Kna" id="Cc1-uw-x3u"/>
+                        <outlet property="workOutName" destination="oOT-hl-mCZ" id="PcK-wl-6Sd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aLx-WH-hCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ImX-TG-meT">
+                    <connections>
+                        <action selector="selectingFromPhotoLibrary:" destination="gmh-LT-uq3" id="wcB-IB-uIF"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="4989" y="1768"/>
+        </scene>
+        <!--Desired Number of Sets-->
+        <scene sceneID="AZC-lK-0G7">
+            <objects>
+                <tableViewController id="ewg-PX-hKF" customClass="SetAmountTableViewController" customModule="Personal_Trainer" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="82" sectionHeaderHeight="28" sectionFooterHeight="28" id="9mm-Yl-bwg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="setNum" rowHeight="82" id="av1-NK-VJs" customClass="SetTableViewCell" customModule="Personal_Trainer" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="82"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="av1-NK-VJs" id="Apm-x7-5Of">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="81.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T4F-P6-FNw">
+                                            <rect key="frame" x="105" y="0.0" width="251" height="27"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Decline Barbell Bench Press" translatesAutoresizingMaskIntoConstraints="NO" id="gl4-4d-MEg">
+                                            <rect key="frame" x="8" y="0.0" width="89" height="76.5"/>
+                                        </imageView>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fZW-pe-hxR">
+                                            <rect key="frame" x="259" y="35" width="97" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        </textField>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="Label" destination="T4F-P6-FNw" id="5ru-53-2qU"/>
+                                    <outlet property="TheImage" destination="gl4-4d-MEg" id="wD5-8v-gIU"/>
+                                    <outlet property="setNum" destination="fZW-pe-hxR" id="tEf-Xx-Y7d"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ewg-PX-hKF" id="FGM-ZV-O9X"/>
+                            <outlet property="delegate" destination="ewg-PX-hKF" id="ofa-EO-rTW"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Desired Number of Sets" id="QU2-30-F6g">
+                        <barButtonItem key="backBarButtonItem" title="Choose Plan" id="fX0-OT-TtF"/>
+                        <barButtonItem key="rightBarButtonItem" title="Continue" id="QXF-y7-TOq">
+                            <connections>
+                                <segue destination="a4h-vC-n3u" kind="show" id="uhO-uI-JUG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fZQ-Pn-365" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5074.5" y="562.5"/>
+        </scene>
+        <!--Choose Plan-->
+        <scene sceneID="qiP-MI-k25">
+            <objects>
+                <viewController title="Choose Plan" id="89Q-wl-EED" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="slk-m0-fYC"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Ks-PR-fmN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ytg-cW-iEa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uUb-rK-xlU">
+                                <rect key="frame" x="105" y="278" width="165" height="133"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <state key="normal" title="Create New Plan"/>
+                                <connections>
+                                    <segue destination="JmZ-Ps-Ywa" kind="show" id="Xwd-hu-kC4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Vj-dO-Rpv">
+                                <rect key="frame" x="61" y="165" width="253" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Choose From Existing Plans"/>
+                                <connections>
+                                    <segue destination="ORu-1A-eIE" kind="show" id="zaf-qY-xDS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lpR-i6-I8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3742.5" y="562.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="thI-H9-r1w">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qSq-nW-0pT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YvK-MO-JoA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gmh-LT-uq3" kind="relationship" relationship="rootViewController" id="uSv-Xn-pwJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8dD-m2-WcI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4230" y="1740"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Decline Barbell Bench Press" width="460" height="460"/>
+        <image name="defaultPhoto" width="540" height="540"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="zdj-Un-fXH"/>
+        <segue reference="uwi-ee-xee"/>
+        <segue reference="uhO-uI-JUG"/>
+    </inferredMetricsTieBreakers>
+</document>
